@@ -24,17 +24,6 @@
  	"source": "final-1-job1-build-unspecified.war",
   	"destination": "/opt/apache-tomcat-9.0.20/webapps/"
     }
-    ],
-
-    "post-processors": [
-        [
-            {
-               "type": "docker-tag",
-               "repository": "joaodartora/final-1",
-               "tag": "final-1-packer-image"
-            },
-            "docker-push"
-        ]
     ]
 }
 
