@@ -32,9 +32,13 @@
                "type": "docker-tag",
                "repository": "joaodartora/final-1",
                "tag": "final-1-packer-image"
+            },
+            {
+               "type": "docker-push",
+               "login": "true",
+               "login_username": "joaodartora",
+               "login_password": "Granturismo8!"
             }
         ]
     ]
 }
-
-  
