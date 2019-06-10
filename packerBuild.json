@@ -1,0 +1,42 @@
+{
+    "builders": [{
+        "type": "docker",
+        "image": "ubuntu:16.04",
+	"commit": true,
+	"pull": false,
+        "changes": [
+            "WORKDIR /home/ilegra0318/final-1",
+            "EXPOSE 8031",	
+            "ENTRYPOINT /opt/apache-tomcat-9.0.20/bin/catalina.sh run"
+        ]
+    }],
+
+    "provisioners": [
+    {
+        "type": "shell",
+        "script": "installAnsible.sh"
+    },
+    {
+        "type": "ansible-local",
+        "playbook_file": "testJava.yml"
+    },
+    {
+	"type": "file",
+ 	"source": "/home/ilegra0318/final-1/app-test.war",
+  	"destination": "/opt/apache-tomcat-9.0.20/webapps/"
+    }
+    ],
+
+    "post-processors": [
+        [
+            {
+               "type": "docker-tag",
+               "repository": "joaodartora/final-1",
+               "tag": "final-1-packer-image"
+            },
+            "docker-push"
+        ]
+    ]
+}
+
+  
