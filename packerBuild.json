@@ -36,8 +36,8 @@
             {
                "type": "docker-push",
                "login": "true",
-               "login_username": "joaodartora",
-               "login_password": "Granturismo8!"
+               "login_username": "user",
+               "login_password": "password"
             }
         ]
     ]
